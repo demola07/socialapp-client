@@ -26,6 +26,11 @@ const styles = {
   },
   button: {
     marginTop: 20
+  },
+  customError: {
+    color: 'red',
+    fontSize: '0.8rem',
+    marginTop: 10
   }
 };
 
@@ -90,10 +95,15 @@ class login extends Component {
           </Typography>
 
           <form noValidate onSubmit={this.handleSubmit}>
-            <TextField id='email' name='email' type='email' label='Email' className={classes.textField}  value={this.state.email} onChange={this.handleChange} fullWidth />
+            <TextField id='email' name='email' type='email' label='Email' className={classes.textField} helperText={errors.email} error={errors.email ? true : false} value={this.state.email} onChange={this.handleChange} fullWidth />
 
-            <TextField id='password' name='password' type='password' label='Password' className={classes.textField}  value={this.state.password} onChange={this.handleChange} fullWidth />
+            <TextField id='password' name='password' type='password' label='Password' className={classes.textField} helperText={errors.password} error={errors.password ? true : false} value={this.state.password} onChange={this.handleChange} fullWidth />
 
+          {errors.general && (
+            <Typography variant='body2' className={classes.customError}>
+              {errors.general}
+            </Typography>
+          )}
             <Button type='submit' variant='contained' color="primary" className={classes.button}>Login</Button>
 
 
