@@ -51,7 +51,7 @@ export default function(state = initialState, action) {
     case UNLIKE_SCREAM:
       return {
         ...state,
-        likes: state.likes.filter(like => like.screamId === payload.screamId)
+        likes: state.likes.filter(like => like.screamId !== payload.screamId)
       };
 
     default:
