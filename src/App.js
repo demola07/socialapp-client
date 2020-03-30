@@ -11,7 +11,7 @@ import axios from 'axios';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import { SET_AUTHENTICATED } from './redux/types';
-import { logOutUser, getUserData } from './redux/actions/userActions';
+import { logoutUser, getUserData } from './redux/actions/userActions';
 
 //Components
 import Navbar from './components/Navbar';
@@ -30,7 +30,7 @@ if (token) {
 
   if (decodedToken.exp * 1000 < Date.now()) {
     window.location.href = '/login';
-    store.dispatch(logOutUser());
+    store.dispatch(logoutUser());
   } else {
     store.dispatch({
       type: SET_AUTHENTICATED
