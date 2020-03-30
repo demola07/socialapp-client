@@ -33,13 +33,21 @@ class signup extends Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.UI.errors !== prevProps.UI.errors) {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.UI.errors) {
       this.setState({
-        errors: this.props.UI.errors
+        errors: nextProps.UI.errors
       });
     }
   }
+
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.UI.errors !== prevProps.UI.errors) {
+  //     this.setState({
+  //       errors: this.props.UI.errors
+  //     });
+  //   }
+  // }
 
   handleSubmit = event => {
     event.preventDefault();
