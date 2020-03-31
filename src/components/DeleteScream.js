@@ -26,7 +26,7 @@ const styles = {
 
 class DeleteScream extends Component {
   state = {
-    open: ''
+    open: false
   };
 
   handleOpen = () => {
