@@ -47,6 +47,12 @@ class PostScream extends Component {
         errors: nextProps.UI.errors
       });
     }
+    if (!nextProps.UI.errors && !nextProps.UI.loading) {
+      this.setState({
+        body: ''
+      });
+      this.handleClose();
+    }
   }
 
   handleOpen = () => {
@@ -56,13 +62,15 @@ class PostScream extends Component {
   };
   handleClose = () => {
     this.setState({
-      open: false
+      open: false,
+      errors: {}
     });
   };
 
   handleChange = event => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
+      errors: {}
     });
   };
 
