@@ -55,7 +55,7 @@ class DeleteScream extends Component {
         </MyButton>
 
         <Dialog open={this.state.open} onClose={this.handleClose} fullWidth maxWidth='sm'>
-          <DialogTitle>Are you sure you want to delete this Scream</DialogTitle>
+          <DialogTitle>Are you sure you want to delete this Scream ?</DialogTitle>
 
           <DialogActions>
             <Button onClick={this.handleClose} color='primary'>
