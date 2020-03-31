@@ -7,11 +7,11 @@ import Profile from '../components/Profile';
 
 //Redux
 import { connect } from 'react-redux';
-import { getScrems } from '../redux/actions/dataActions';
+import { getScreams } from '../redux/actions/dataActions';
 
 class home extends Component {
   componentDidMount() {
-    this.props.getScrems();
+    this.props.getScreams();
   }
 
   render() {
@@ -38,11 +38,11 @@ class home extends Component {
 
 home.propTypes = {
   data: PropTypes.object.isRequired,
-  getScrems: PropTypes.func.isRequired
+  getScreams: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   data: state.data
 });
 
-export default connect(mapStateToProps, { getScrems })(home);
+export default connect(mapStateToProps, { getScreams })(home);
