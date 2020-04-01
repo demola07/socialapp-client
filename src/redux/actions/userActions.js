@@ -8,6 +8,7 @@ import {
 } from '../types';
 import axios from 'axios';
 
+//login a User
 export const loginUser = (userData, history) => dispatch => {
   dispatch({
     type: LOADING_UI
@@ -34,6 +35,7 @@ export const loginUser = (userData, history) => dispatch => {
     });
 };
 
+//Signup a User
 export const signupUser = (newUserData, history) => dispatch => {
   dispatch({
     type: LOADING_UI
@@ -58,6 +60,7 @@ export const signupUser = (newUserData, history) => dispatch => {
     });
 };
 
+//Logout a user
 export const logoutUser = () => dispatch => {
   localStorage.removeItem('FBIdToken');
   delete axios.defaults.headers.common['Authorization'];
@@ -66,6 +69,7 @@ export const logoutUser = () => dispatch => {
   });
 };
 
+//Get user details
 export const getUserData = () => dispatch => {
   dispatch({
     type: LOADING_USER
@@ -81,6 +85,7 @@ export const getUserData = () => dispatch => {
     .catch(err => console.log(err));
 };
 
+//Upload a Profile image
 export const uploadImage = formData => dispatch => {
   dispatch({
     type: LOADING_USER
@@ -93,6 +98,7 @@ export const uploadImage = formData => dispatch => {
     .catch(err => console.log(err));
 };
 
+//Edit User details
 export const editUserDetails = userDetails => dispatch => {
   dispatch({ type: LOADING_USER });
 
