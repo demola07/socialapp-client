@@ -35,12 +35,25 @@ export default function(state = initialState, action) {
         scream: payload
       };
     case LIKE_SCREAM:
-    case UNLIKE_SCREAM:
       let index = state.screams.findIndex(scream => scream.screamId === payload.screamId);
       state.screams[index] = payload;
 
       if (state.scream.screamId === payload.screamId) {
-        state.scream = payload;
+        state.scream.likeCount++;
+        state.scream = { ...state.scream, payload };
+      }
+      return {
+        ...state
+      };
+
+    case UNLIKE_SCREAM:
+      let index2 = state.screams.findIndex(scream => scream.screamId === payload.screamId);
+      state.screams[index2] = payload;
+
+      if (state.scream.screamId === payload.screamId) {
+        state.scream.likeCount--;
+
+        state.scream = { ...state.scream, payload };
       }
       return {
         ...state
@@ -57,12 +70,12 @@ export default function(state = initialState, action) {
         screams: [payload, ...state.screams]
       };
     case SUBMIT_COMMENT:
-      console.log(payload);
       return {
         ...state,
         scream: {
           ...state.scream,
-          comments: [payload, ...state.scream.comments]
+          comments: [payload, ...state.scream.comments],
+          commentCount: state.scream.commentCount + 1
         }
       };
     default:
