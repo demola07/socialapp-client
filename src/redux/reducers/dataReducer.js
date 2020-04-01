@@ -29,8 +29,6 @@ export default function(state = initialState, action) {
         loading: false
       };
     case SET_SCREAM:
-      console.log(payload);
-
       return {
         ...state,
         scream: payload
