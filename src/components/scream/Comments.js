@@ -9,7 +9,16 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
-  ...theme.otherstyles
+  ...theme.otherstyles,
+  commentImage: {
+    maxWidth: '100%',
+    height: 100,
+    objectFit: 'cover',
+    borderRadius: '50%'
+  },
+  commentData: {
+    marginLeft: 20
+  }
 });
 
 class Comments extends Component {
@@ -17,7 +26,7 @@ class Comments extends Component {
     const { classes, comments } = this.props;
     return (
       <Grid container>
-        {comments.map(comment => {
+        {comments.map((comment, index) => {
           const { body, createdAt, userImage, userHandle } = comment;
           return (
             <Fragment key={createdAt}>
@@ -45,7 +54,7 @@ class Comments extends Component {
                   </Grid>
                 </Grid>
               </Grid>
-              <hr className={classes.visibleSeparator} />
+              {index !== comments.length - 1 && <hr className={classes.visibleSeparator} />}
             </Fragment>
           );
         })}

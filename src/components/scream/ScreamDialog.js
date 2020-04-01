@@ -105,6 +105,7 @@ class ScreamDialog extends Component {
           </MyButton>
           <span>{commentCount} Comments</span>
         </Grid>
+        {/* {comment input} */}
         <hr className={classes.visibleSeparator} />
         <Comments comments={comments} />
       </Grid>
