@@ -37,7 +37,6 @@ export default function(state = initialState, action) {
     case LIKE_SCREAM:
       let index = state.screams.findIndex(scream => scream.screamId === payload.screamId);
       state.screams[index] = payload;
-
       if (state.scream.screamId === payload.screamId) {
         state.scream.likeCount++;
         state.scream = { ...state.scream, payload };
