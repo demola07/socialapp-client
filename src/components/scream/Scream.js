@@ -4,7 +4,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
 import MyButton from '../../util/MyButton';
-import DeleteScream from '../DeleteScream';
+import DeleteScream from './DeleteScream';
 import ScreamDialog from './ScreamDialog';
 import LikeButton from './LikeButton';
 
